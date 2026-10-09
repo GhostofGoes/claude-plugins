@@ -22,8 +22,10 @@ report carries at most the last 20 lines of output.
 The three agents ship in the `lead-coder` plugin's `agents/` directory, so
 installing the plugin is the whole setup. They exist wherever plugin agents
 load: Claude Code (CLI and the desktop Code tab) and Cowork. Chat loads this
-skill but never plugin agents, and cloud sessions load no plugins. A session
-started before the plugin was installed sees them after a restart.
+skill but never plugin agents. Cloud sessions load the plugin only from a
+personal environment whose setup script clones it and whose
+`CLAUDE_CODE_PLUGIN_DIRS` points at the clone. A session started before the
+plugin was installed sees them after a restart.
 
 When the Agent tool answers `Agent type 'lead-coder:lead-runner' not found`,
 tell the user the protocol cannot run in this session and stop. Standing in

@@ -38,8 +38,22 @@ Account plugins reach Claude Code as `lead-coder@synced`.
 | Claude Code (CLI, desktop Code tab) | yes | yes |
 | Cowork | yes | yes |
 | Chat | yes | no: Chat never loads plugin agents |
-| Cloud sessions | no | no: cloud sessions load no plugins |
+| Cloud sessions | with the setup below | with the setup below |
 
-For cloud sessions in a given repo, commit the skill to `.claude/skills/` and
-the agents to `.claude/agents/` there; inside a repo the agents lose the
-`lead-coder:` prefix, so the skill's agent names need it removed.
+### Cloud sessions
+
+Cloud sessions load no installed or synced plugins. To load lead-coder there
+without adding anything to the project repository, configure a **personal**
+cloud environment (cloud icon above the message box at claude.ai/code → add or
+edit an environment):
+
+1. **Setup script:** paste [`scripts/cloud-setup.sh`](scripts/cloud-setup.sh).
+   It clones this repository to `/opt/claude-plugins` and always exits 0.
+2. **Environment variables:**
+   `CLAUDE_CODE_PLUGIN_DIRS=/opt/claude-plugins/plugins/lead-coder`
+3. Start a session in that environment and run `/lead-coder:lead-coder-setup`.
+   It dispatches `lead-coder:lead-runner` with `echo lead-runner-ok`; that
+   output means the agents loaded.
+
+The environment snapshot keeps the checkout, so plugin updates arrive when the
+setup script reruns: after you edit the script, or about every seven days.
