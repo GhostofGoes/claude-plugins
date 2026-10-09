@@ -1,0 +1,14 @@
+{
+  "name": "ghostofgoes",
+  "owner": {
+    "name": "Christopher Goes"
+  },
+  "description": "Personal Claude plugins.",
+  "plugins": [
+    {
+      "name": "lead-coder",
+      "source": "./plugins/lead-coder",
+      "description": "Thinker, implementer, runner and explorer agents on separate model tiers, driven by the lead-coder-setup skill."
+    }
+  ]
+}
