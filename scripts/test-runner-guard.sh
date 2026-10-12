@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016
+# SC2016 is off because the commands under test are single-quoted on purpose.
 # Tests plugins/robot-ghosts/hooks/runner-guard.sh and runner_guard.py.
 # Run: bash scripts/test-runner-guard.sh
 # Set GUARD_BASH to test under another bash (for example /bin/bash 3.2 on macOS).

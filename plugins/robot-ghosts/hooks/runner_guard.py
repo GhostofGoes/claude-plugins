@@ -3,7 +3,7 @@
 runner-guard.sh calls this only for the runner's Bash calls. It denies a call
 whose commands change git state, write through gh, delete files, or deploy, and
 a call that is neither a log-template run nor a read of a runner log.
-Standard library only; Python 3.8 or later.
+Standard library only; Python 3.9 or later.
 """
 
 import json
