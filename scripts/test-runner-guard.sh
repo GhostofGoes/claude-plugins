@@ -9,18 +9,19 @@ guard="$(cd "$(dirname "$0")/.." && pwd)/plugins/robot-ghosts/hooks/runner-guard
 shell=${GUARD_BASH:-bash}
 fails=0
 
-escape() {
-  local s=$1
-  s=${s//\\/\\\\}
-  s=${s//\"/\\\"}
-  s=${s//$'\n'/\\n}
-  printf '%s' "$s"
+# hook_input <command> <agent_type>: the compact JSON Claude Code sends the hook.
+# Built in Python: bash 3.2's ${s//...} takes minutes on a 60KB command.
+hook_input() {
+  python3 -c 'import json, sys
+print(json.dumps({"session_id": "s", "hook_event_name": "PreToolUse", "tool_name": "Bash",
+                  "tool_input": {"command": sys.argv[1], "description": "x"},
+                  "agent_id": "a1", "agent_type": sys.argv[2]}, separators=(",", ":")))' "$1" "$2"
 }
 
 # check <expect: allow|deny> <agent_type> <command>
 check() {
   local json out got
-  json=$(printf '{"session_id":"s","hook_event_name":"PreToolUse","tool_name":"Bash","tool_input":{"command":"%s","description":"x"},"agent_id":"a1","agent_type":"%s"}' "$(escape "$3")" "$2")
+  json=$(hook_input "$3" "$2")
   out=$(printf '%s' "$json" | "$shell" "$guard")
   got=allow
   [[ $out == *'"permissionDecision": "deny"'* || $out == *'"permissionDecision":"deny"'* ]] && got=deny
