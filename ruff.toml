@@ -1,0 +1,6 @@
+# The runner guard runs on whatever python3 the machine has; macOS ships 3.9.
+target-version = "py39"
+
+[lint]
+# Explicit, so local and CI runs agree whatever ruff's defaults become.
+select = ["E4", "E7", "E9", "F", "B"]
