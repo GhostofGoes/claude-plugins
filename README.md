@@ -4,13 +4,22 @@ Personal Claude plugins, published as the `ghostofgoes` marketplace.
 
 ## robot-ghosts
 
-The `robot-ghosts-setup` skill plus the three agents it dispatches:
+The `robot-ghosts-setup` skill plus the four agents it dispatches:
 
 | Agent | Model | Role |
 |---|---|---|
 | `robot-ghosts:explorer` | Sonnet | reads the code and answers factual questions |
 | `robot-ghosts:implementer` | Opus | implements a brief, three verification runs at most |
-| `robot-ghosts:runner` | Haiku | runs commands and returns raw output |
+| `robot-ghosts:runner` | Haiku | runs commands and returns the exit code, failure lines, and a short tail |
+| `robot-ghosts:reviewer` | Sonnet | reviews the confirmed change against its brief |
+
+A PreToolUse hook, `hooks/runner-guard.sh`, keeps `robot-ghosts:runner` to
+its log template. It also refuses the runner's git writes, `gh` writes,
+deletes, and deploys; `hooks/runner_guard.py` holds the full list. The hook
+needs `python3`; without it, the runner refuses every command. It covers the
+runner only: the implementer's and reviewer's read-only Bash rules live in
+their prompts. A setup that copies the agents without installing the plugin
+has no hook. Test it with `bash scripts/test-runner-guard.sh`.
 
 ### Install
 

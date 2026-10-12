@@ -1,7 +1,7 @@
 {
   "name": "robot-ghosts",
-  "version": "1.0.0",
-  "description": "Splits a coding task across model tiers: the session thinks, an Opus implementer builds, a Haiku runner executes commands, and a Sonnet explorer reads the code.",
+  "version": "1.1.0",
+  "description": "Splits a coding task across model tiers: the session thinks, an Opus implementer builds, a Haiku runner executes commands and condenses their output, a Sonnet explorer reads the code, and a Sonnet reviewer checks the result.",
   "author": {
     "name": "Christopher Goes"
   },
