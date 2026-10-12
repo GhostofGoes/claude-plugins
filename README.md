@@ -4,7 +4,12 @@ Personal Claude plugins, published as the `ghostofgoes` marketplace.
 
 ## robot-ghosts
 
-The `robot-ghosts-setup` skill plus the four agents it dispatches:
+Thanks to Matthew Stroble at Sandia National Laboratories for the original
+inspiration and guidance that formed this skill.
+
+### Overview
+
+The `robot-ghosts-setup` skill consists of 4 agents that are dispatched:
 
 | Agent | Model | Role |
 |---|---|---|
@@ -52,11 +57,6 @@ Account plugins reach Claude Code as `robot-ghosts@synced`.
 For cloud sessions in a given repo, commit the skill to `.claude/skills/` and
 the agents to `.claude/agents/` there; inside a repo the agents lose the
 `robot-ghosts:` prefix, so the skill's agent names need it removed.
-
-### Credits
-
-Thanks to Matthew Stroble at Sandia National Laboratories for the original
-inspiration and guidance that formed this skill.
 
 ## Checks
 
