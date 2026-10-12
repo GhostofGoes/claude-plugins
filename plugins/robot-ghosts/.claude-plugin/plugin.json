@@ -1,11 +1,11 @@
 {
-  "name": "lead-coder",
+  "name": "robot-ghosts",
   "version": "1.0.0",
   "description": "Splits a coding task across model tiers: the session thinks, an Opus implementer builds, a Haiku runner executes commands, and a Sonnet explorer reads the code.",
   "author": {
     "name": "Christopher Goes"
   },
-  "homepage": "https://github.com/GhostofGoes/claude-plugins/tree/main/plugins/lead-coder",
+  "homepage": "https://github.com/GhostofGoes/claude-plugins/tree/main/plugins/robot-ghosts",
   "repository": "https://github.com/GhostofGoes/claude-plugins",
   "keywords": [
     "subagents",

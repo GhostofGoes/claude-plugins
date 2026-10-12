@@ -2,15 +2,15 @@
 
 Personal Claude plugins, published as the `ghostofgoes` marketplace.
 
-## lead-coder
+## robot-ghosts
 
-The `lead-coder-setup` skill plus the three agents it dispatches:
+The `robot-ghosts-setup` skill plus the three agents it dispatches:
 
 | Agent | Model | Role |
 |---|---|---|
-| `lead-coder:lead-explorer` | Sonnet | reads the code and answers factual questions |
-| `lead-coder:lead-implementer` | Opus | implements a brief, three verification runs at most |
-| `lead-coder:lead-runner` | Haiku | runs commands and returns raw output |
+| `robot-ghosts:explorer` | Sonnet | reads the code and answers factual questions |
+| `robot-ghosts:implementer` | Opus | implements a brief, three verification runs at most |
+| `robot-ghosts:runner` | Haiku | runs commands and returns raw output |
 
 ### Install
 
@@ -18,7 +18,7 @@ The `lead-coder-setup` skill plus the three agents it dispatches:
 
 ```bash
 claude plugin marketplace add GhostofGoes/claude-plugins   # or a local path to this repo
-claude plugin install lead-coder@ghostofgoes
+claude plugin install robot-ghosts@ghostofgoes
 ```
 
 **claude.ai account (Cowork, Chat, and Claude Code via sync):** Customize →
@@ -26,10 +26,10 @@ Plugins → Add → **Add marketplace** with `GhostofGoes/claude-plugins`, or
 **Upload plugin** with a zip built by:
 
 ```bash
-mkdir -p dist && (cd plugins && zip -r -X ../dist/lead-coder.zip lead-coder -x '*.DS_Store')
+mkdir -p dist && (cd plugins && zip -r -X ../dist/robot-ghosts.zip robot-ghosts -x '*.DS_Store')
 ```
 
-Account plugins reach Claude Code as `lead-coder@synced`.
+Account plugins reach Claude Code as `robot-ghosts@synced`.
 
 ### Where it works
 
@@ -42,4 +42,9 @@ Account plugins reach Claude Code as `lead-coder@synced`.
 
 For cloud sessions in a given repo, commit the skill to `.claude/skills/` and
 the agents to `.claude/agents/` there; inside a repo the agents lose the
-`lead-coder:` prefix, so the skill's agent names need it removed.
+`robot-ghosts:` prefix, so the skill's agent names need it removed.
+
+### Credits
+
+Thanks to Matthew Stroble at Sandia National Laboratories for the original
+inspiration and guidance that formed this skill.
